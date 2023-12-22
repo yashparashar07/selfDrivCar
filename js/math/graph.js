@@ -21,6 +21,21 @@ class Graph{
         return false;
     }
     
+    addSegment(seg){
+        this.segments.push(seg);
+    }
+
+    containsSegment(seg){
+        return this.segments.find((s) => s.equals(seg));
+    }
+
+    tryAddSegment(seg){
+        if(!this.containsSegment(seg)){
+            this.addSegment(seg);
+            return true;
+        }
+        return false;
+    }
 
     draw(ctx){
         for(const seg of this.segments){
